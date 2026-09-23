@@ -18,10 +18,14 @@ export default function MainLayout({ techPromise }: MainLayoutProps) {
     };
 
     const handleRemoveFromStack = (id: string) => {
-        setSelectedTech(
-            selectedTech.filter(tech => tech.id !== id)
-        );
-    };
+    const removedTech = selectedTech.find(tech => tech.id === id);
+
+    setSelectedTech(
+        selectedTech.filter(tech => tech.id !== id)
+    );
+
+    toast.error(`${removedTech?.name} removed from your stack!`);
+};
 
     const handleRemoveAll = () => {
         setSelectedTech([]);
