@@ -3,6 +3,7 @@ import Banner from "./components/Banner"
 import Nav from "./components/Nav"
 import type { TechType } from "./type"
 import MainLayout from "./components/MainLayout";
+import { Footer } from "./components/Footer";
 
 
 const techPromise = async ():Promise<TechType[]> =>{
@@ -21,9 +22,10 @@ function App() {
     <Nav/>
     <Banner/>
     
-    <Suspense fallback={<h3>loading....</h3>}>
+    <Suspense fallback={<h3 className="text-center text-4xl font-bold">loading....</h3>}>
     <MainLayout techPromise={techPromise()} />
     </Suspense>
+    <Footer/>
     </>
   )
 }
