@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { TechType } from "../type";
 import TechList from "./TechList";
 import YourStack from "./YourStack";
+import { toast } from "react-toastify";
 
 interface MainLayoutProps {
    techPromise: Promise<TechType[]>;
@@ -15,6 +16,7 @@ export default function MainLayout({ techPromise }: MainLayoutProps) {
 
     const handleAddToStack = (tech:TechType) => {
         setSelectedTech([...selectedTech,tech]);
+        toast.success(`${tech.name} added to your stack!`);
     }
     
     return(
