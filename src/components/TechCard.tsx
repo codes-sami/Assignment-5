@@ -3,10 +3,14 @@ import type { TechType } from "../type"
 
 export interface TechCardProps {
     tech: TechType
+    handleAddToStack:(tech:TechType) => void;
+     selectedTech:TechType[];
 }
 
-export default function TechCard({ tech }: TechCardProps) {
+export default function TechCard({ tech,handleAddToStack, selectedTech }: TechCardProps) {
     
+const isSelected = selectedTech.some(selected => selected.id === tech.id);
+
     return(
         <>
         <div>
@@ -24,7 +28,7 @@ export default function TechCard({ tech }: TechCardProps) {
                     <p>{tech.difficulty}</p>
                     <p className="flex gap-1 items-center font-semibold"><FaStar className="text-yellow-400" />{tech.rating}</p>
                 </div>
-                <button className="text-white bg-black rounded-lg text-[12px] px-3 py-1.5 cursor-pointer">Add to Stack</button>
+                <button disabled={isSelected} onClick={()=> handleAddToStack(tech)} className=" disabled:bg-gray-400 text-white bg-black rounded-lg text-[12px] px-3 py-1.5 cursor-pointer">{isSelected? 'Added' : 'Add to Stack'}</button>
             </div>
         </div>
         </>

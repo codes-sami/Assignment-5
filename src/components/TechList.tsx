@@ -4,9 +4,11 @@ import TechCard from "./TechCard";
 
 export interface TechListProps {
     techPromise: Promise<TechType[]>;
+    handleAddToStack:(tech:TechType) => void;
+    selectedTech:TechType[];
 }
 
-export default function TechList({ techPromise }: TechListProps) {
+export default function TechList({ techPromise,handleAddToStack,selectedTech }: TechListProps) {
     const techs = use(techPromise);
     
     return(
@@ -17,7 +19,7 @@ export default function TechList({ techPromise }: TechListProps) {
         <div className="grid grid-cols-3 gap-4">
             {
                 techs.map(tech => {
-                    return <TechCard key={tech.id} tech={tech}></TechCard>
+                    return <TechCard   selectedTech={selectedTech}handleAddToStack={handleAddToStack} key={tech.id} tech={tech}></TechCard>
                 })
             }
         </div>

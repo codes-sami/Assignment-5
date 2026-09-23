@@ -1,14 +1,22 @@
-// export interface YourStackProps {
-//     prop: string
-// }
+import type { TechType } from "../type"
 
-export default function YourStack() {
+export interface YourStackProps {
+    selectedTech: TechType[];
+}
+
+export default function YourStack({selectedTech}:YourStackProps) {
     
     return(
         <>
         <div className="bg-blue-400 mt-44.5">
-            <h2>Your Stack</h2>
-            <p>0 Stack Selected</p>
+            <h2>{selectedTech.length} Stack Selected</h2>
+            {
+                selectedTech.map(tech=>
+                    <div key={tech.id}>
+                        {tech.name}
+                    </div>
+                )
+            }
         </div>
         </>
     ) 
