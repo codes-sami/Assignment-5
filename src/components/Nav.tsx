@@ -4,7 +4,7 @@ export default function Nav() {
     return(
         <>
         <div>
-            <div className='flex justify-between items-center max-w-5xl mx-auto pt-3'>
+            <div className='flex justify-between items-center max-w-6xl mx-auto pt-3'>
                 <img src={Logo} alt="" />
                 <div className='flex list-none gap-5 text-[16px]'>
                     <li><a className='text-[#DB2777]' href="#">Home</a></li>

@@ -2,7 +2,8 @@ import { Suspense } from "react";
 import Banner from "./components/Banner"
 import Nav from "./components/Nav"
 import type { TechType } from "./type"
-import TechList from "./components/TechList";
+import MainLayout from "./components/MainLayout";
+
 
 const techPromise = async ():Promise<TechType[]> =>{
   const res = await fetch('/data.json');
@@ -19,8 +20,9 @@ function App() {
     <>
     <Nav/>
     <Banner/>
+    
     <Suspense fallback={<h3>loading....</h3>}>
-    <TechList techPromise={techPromise()} />
+    <MainLayout techPromise={techPromise()} />
     </Suspense>
     </>
   )
