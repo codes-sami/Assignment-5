@@ -3,7 +3,7 @@ export default function Nav() {
     
     return(
         <>
-        <div>
+        <div className='sticky top-0 bg-white'>
             <div className='flex justify-between items-center max-w-6xl mx-auto pt-3'>
                 <img src={Logo} alt="" />
                 <div className='flex list-none gap-5 text-[16px]'>

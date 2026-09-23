@@ -17,7 +17,7 @@ const isSelected = selectedTech.some(selected => selected.id === tech.id);
             <div className=" flex flex-col space-y-4 p-6 border-[#F1F5F9] border-2 rounded-2xl">
                 <div className="flex justify-between">
                     <img className="h-8" src={tech.icon} alt="" />
-                    <div className="badge badge-soft badge-info">{tech.badge}</div>
+                    <div className="badge badge-soft badge-secondary">{tech.badge}</div>
                 </div>
                 <div className="flex flex-col gap-1.5">
                     <h2 className="text-[17px] font-bold">{tech.name}</h2>
